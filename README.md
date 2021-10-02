@@ -4,12 +4,12 @@ From a business requirements standpoint,this repo creates a basic Express server
 
 ## GitHub Actions / PRs
 
-[home repo](https://github.com/antoni909/basic-express-server)
-[pull request dev to main](https://github.com/antoni909/basic-express-server/pull/2)
+[home repo](https://github.com/antoni909/basic-api-server)
+[pull request dev to main]()
 
 ## Heroku Deployments
 
-[Heroku Deployment](https://basic-express-server-mn.herokuapp.com/person/?name=lorenzo)
+[Heroku Deployment]()
 
 
 ## [Assignment Instructions - Lab 02](./assignment.md)

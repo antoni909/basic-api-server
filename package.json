@@ -1,0 +1,28 @@
+{
+  "name": "server-deployment-practice",
+  "version": "1.0.0",
+  "description": "## Heroku Deployments",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "watch": "jest --coverage --watchAll",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antoni909/server-deployment-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antoni909/server-deployment-practice/issues"
+  },
+  "homepage": "https://github.com/antoni909/server-deployment-practice#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jest": "^27.0.4",
+    "supertest": "^6.1.3"
+  }
+}

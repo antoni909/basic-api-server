@@ -28,19 +28,19 @@ async function createFood(req,res){
 
 async function getOneFood(req,res){
   const id = parseInt(req.params.id);
-  let food = await Food.findOne({ where:{id:id}});
+  let food = await Food.findOne({ where:{id:id} });
   console.log(`***ONE FOOD: ${food} FOUND: `, food)
   res.status(200).json(food);
 }
 
 async function updateFood(req,res){
-  const foodId = req.params.id;
+  const foodId = parseInt(req.params.id);
   const foodObject = req.body;
 
-  const foodData = await data.food.findOne({where: {id:foodId}});
-  await foodData.update(foodObject);
+  const foodData = await Food.findOne({where: {id:foodId}});
+  let updatedFood = await foodData.update(foodObject);
 
-  res.status(200).send(foodData);
+  res.status(200).send(updatedFood);
 }
 
 async function deleteFood(req,res){

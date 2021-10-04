@@ -29,21 +29,21 @@ describe('web server', () => {
   });
 
   it('can add a record', async () => {
-    const response = await request.post('./food').send({
+    const response = await request.post('/food').send({
       name: 'test',
       calories: 100
     })
-    console.log('RESPONSE PROMISE',response)
     expect(response.status).toEqual(200);
     expect(response.body.name).toEqual('test');
-    expect(response.body.calorie).toEqual(100);
+    expect(response.body.calories).toEqual(100);
   });
 
-  // it('can get a list of records', async () => {
-  //   const response = await (await request.get('./food'));
-  //   expect(response.status).toEqual(200);
-  //   expect(response.body).toEqual([]);
-  // });
+  it('can get a list of records', async () => {
+    const response = await request.get('/food');
+    expect(response.status).toEqual(200);
+    expect(response.body).toBeTruthy();
+    // find a way to expect an arr of objs
+  });
 
   it('can get a record', async () => {
     const response = await request.get('/food/1');
@@ -51,9 +51,9 @@ describe('web server', () => {
     expect(response.body.name).toEqual('test')
   });
 
-  it('can update a record', async () => {
+  // it('can update a record', async () => {
 
-  });
+  // });
 
   it('can delete a record', async () => {
       const response = await request.delete('./food/1');

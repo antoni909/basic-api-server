@@ -14,6 +14,6 @@ const Food = (sequelize, DataTypes) =>
   });
 
 
-console.log('MODELS FOOD MODEL: ',Food)
+// console.log('MODELS FOOD MODEL: ',Food)
 
 module.exports = Food;

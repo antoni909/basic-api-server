@@ -34,7 +34,13 @@ async function getOneFood(req,res){
 }
 
 async function updateFood(req,res){
-  // WIP
+  const foodId = req.params.id;
+  const foodObject = req.body;
+
+  const foodData = await data.food.findOne({where: {id:foodId}});
+  await foodData.update(foodObject);
+
+  res.status(200).send(foodData);
 }
 
 async function deleteFood(req,res){

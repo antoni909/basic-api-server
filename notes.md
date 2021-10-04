@@ -15,12 +15,16 @@
 - time: 01:45, creating models and sequelize
 
 ### for index.js
-// connect to our db depending of POSTGRES-URL || DATABASE_URL
+
+```sh
+// connect to our db depending on POSTGRES-URL || DATABASE_URL
 require('dotenv').config()
 const DATABASE_URL = process.env.NODE_ENV === 'test' ? 'sqlite:memory' : process.env.DATABASE_URL;
 const { Sequelize, DataTypes}= require('sequelize');
+```
 
-// for production site, you are deploying out
+```sh
+// for production site, deploying out
 let sequelizeOptions = process.env.NODE_ENV === 'production'
 ?{
   dialectOptions: {
@@ -39,6 +43,7 @@ module.exports = {
   db: sequelize,
   People: people(sequelize, DataTypes)
 }
+```
 
 ### Configurations
 
@@ -51,26 +56,40 @@ module.exports = {
 sqlite 3 - creates instance of your db
 
 (refer to sequelize docs for scripts)
+
+```sh
 - scripts
   - init: 'sequelize dbcraete:create', on npm init it creates db if not exist
   - start: "NODE_ENV=production node index.js", node env does not exist until npm start
   - dev: "NODE_ENV=development nodemon index.js"
   - test: "NODE_ENV=test jest --verbose -coverage --watch"
+```
 
-### Sync the db
+### Sync the db and server
 
-  db.sync().then(()=>{server.start(3000).catch(console.error());})
+```sh
+  db.sync().then(
+    ()=>{
+      server
+        .start(3000)
+          .catch(console.error());
+    }
+  )
+```
 
-### undefined
-- if url undefined, define it in env
-                                        port/ your db
-  - DATABASE_URL= postgres://locoalhost:5432/people
+### URL undefined
 
+```sh
+  if url undefined, define it in env
+                                      port/your-db
+  DATABASE_URL= postgres://locoalhost:5432/people
+```
 
-### URL queries and params
+### Using/Capturing URL queries and params
 
 To retrieve url params:
 
+```sh
   with queries
   - .../api/user?id=val&token=valTwo
   - retrieve from request object
@@ -81,3 +100,4 @@ To retrieve url params:
   - .../api/:id
   - retrieve from request object
     - req.params.id
+```

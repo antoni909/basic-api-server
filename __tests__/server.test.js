@@ -36,15 +36,19 @@ describe('web server', () => {
     console.log('RESPONSE PROMISE',response)
     expect(response.status).toEqual(200);
     expect(response.body.name).toEqual('test');
-    expect(response.body.calorie).toEqual(100)
+    expect(response.body.calorie).toEqual(100);
   });
 
-  it('can get a list of records', async () => {
-
-  });
+  // it('can get a list of records', async () => {
+  //   const response = await (await request.get('./food'));
+  //   expect(response.status).toEqual(200);
+  //   expect(response.body).toEqual([]);
+  // });
 
   it('can get a record', async () => {
-
+    const response = await request.get('/food/1');
+    expect(response.status).toEqual(200);
+    expect(response.body.name).toEqual('test')
   });
 
   it('can update a record', async () => {
@@ -52,6 +56,7 @@ describe('web server', () => {
   });
 
   it('can delete a record', async () => {
-
+      const response = await request.delete('./food/1');
+      expect(response.status).toBe(204);
   });
 });

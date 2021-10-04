@@ -21,6 +21,7 @@ let sequelizeOptions = process.env.NODE_ENV === 'production'
     : {};
 
 let sequelize = new Sequelize(DATABASE_URL, sequelizeOptions);
+
 const people = require('./person.js');
 const food = require('../models/food.js');
 

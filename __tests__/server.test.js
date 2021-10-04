@@ -33,6 +33,7 @@ describe('web server', () => {
       name: 'test',
       calories: 100
     })
+    console.log('RESPONSE PROMISE',response)
     expect(response.status).toEqual(200);
     expect(response.body.name).toEqual('test');
     expect(response.body.calorie).toEqual(100)

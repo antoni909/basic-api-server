@@ -7,7 +7,7 @@ require('dotenv').config();
 const DATABASE_URL = process.env.NODE_ENV === 'test'? 'sqlite:memory' : process.env.DATABASE_URL;
 
 const { Sequelize, DataTypes } = require('sequelize');
-console.log('DATABASE_URL', DATABASE_URL);
+// console.log('DATABASE_URL', DATABASE_URL);
 
 let sequelizeOptions = process.env.NODE_ENV === 'production'
     ? {

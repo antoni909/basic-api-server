@@ -21,9 +21,17 @@ let sequelizeOptions = process.env.NODE_ENV === 'production'
     : {};
 
 let sequelize = new Sequelize(DATABASE_URL, sequelizeOptions);
-const people = require('./person.js')
+const people = require('./person.js');
+const food = require('../models/food.js');
+
+// console.log('INDEX FOOD Model: ',food(sequelize, DataTypes));
+// console.log('INDEX PEOPLE Model: ',people(sequelize, DataTypes));
+
+let foodModel = food(sequelize, DataTypes);
+let peopleModel = people(sequelize, DataTypes);
 
 module.exports = {
   db: sequelize,
-  People: people(sequelize, DataTypes),
+  People: peopleModel,
+  Food: foodModel,
 }

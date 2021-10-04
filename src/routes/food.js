@@ -1,37 +1,47 @@
-'use strict';
-// need access to express router, therefore must bring in express
-const express = require('express');
+'use strict'
 
-// import db , or people if bringing in people db
-const data = require('../models/index')
-// Router Express Object able to plug into mw process
+const express = require('express');
+const { Food } = require('../models/index');
 const router = express.Router();
 
-router.get('/food',getAll);
-router.get('/food',create);
-router.get('/food',update);
-router.get('/food',destroy);
+//REST route declarations
+router.get('/food', getFood);
+router.get('/food/:id', getOneFood);
+router.post('/food/', createFood);
+router.put('/food/:id',updateFood);
+router.delete('/food/:id',deleteFood);
 
-const getAll = async (req,res) => {
-  const listAllFoodItems = await data.food.findAll();
-  console.log('food items from db',listAllFoodItems);
-  // use next if want to ammend req object
-  let message = 'getAll handler in progress';
-  res.send(message);
-};
+// REST route handlers
+async function getFood(req,res){
+  console.log('ROUTES FOOD MODEL: ', Food)
+  let allFood = await Food.findAll();
+  console.log('***FOOD FOUND: ', allFood)
+  res.status(200).json(allFood)
+}
 
-const create = async (req,res) =>{
-  let message = 'create handler in progress';
-  res.send(message);
-};
-const update = async (req,res) =>{
-  let message = 'update handler in progress';
-  res.send(message);
-};
+async function createFood(req,res){
+  let foodData = req.body;
+  let food = await Food.create(foodData);
+  console.log(`***FOOD: ${food} CREATED`);
+  res.status(200).json(food);
+}
 
-const destroy = async (req,res) =>{
-  let message = 'destroy handler in progress';
-  res.send(message);
-};
+async function getOneFood(req,res){
+  const id = parseInt(req.params.id);
+  let food = await Food.findOne({ where:{id:id}});
+  console.log(`***ONE FOOD: ${food} FOUND: `, food)
+  res.status(200).json(food);
+}
+
+async function updateFood(req,res){
+  // WIP
+}
+
+async function deleteFood(req,res){
+  const id = parseInt(req.params.id);
+  let deletedFood = await Food.destroy({ where: { id:id } } );
+  console.log(`***FOOD ${deletedFood} DELETED: `, deletedFood)
+  res.status(204).json(deletedFood);
+}
 
 module.exports = router;

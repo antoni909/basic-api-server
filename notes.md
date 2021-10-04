@@ -1,6 +1,8 @@
 # General Notes
 
-## PostgresQL
+## personal notes
+
+### PostgresQL
 
 - allow route handlers to interact with in-memory server 
 - will not use 'Persistant' server, will use seqlite in-memory server, used for specifically for testing
@@ -63,3 +65,19 @@ sqlite 3 - creates instance of your db
 - if url undefined, define it in env
                                         port/ your db
   - DATABASE_URL= postgres://locoalhost:5432/people
+
+
+### URL queries and params
+
+To retrieve url params:
+
+  with queries
+  - .../api/user?id=val&token=valTwo
+  - retrieve from request object
+    - req.query.id
+    - req.query.token
+  
+  params with Routes
+  - .../api/:id
+  - retrieve from request object
+    - req.params.id

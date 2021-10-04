@@ -4,9 +4,10 @@
   "description": "## Heroku Deployments",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --coverage",
-    "watch": "jest --coverage --watchAll",
-    "start": "node index.js"
+    "init": "sequelize db:create",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development node index.js",
+    "test": "jest --verbose --coverage"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,9 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jest": "^27.0.4",
+    "pg": "^8.7.1",
+    "sequelize": "^6.6.5",
+    "sqlite3": "^5.0.2",
     "supertest": "^6.1.3"
   }
 }

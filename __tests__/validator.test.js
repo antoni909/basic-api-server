@@ -11,14 +11,18 @@ describe('testing validator middleware', () => {
       },
     };
     let responseObject = {};
+    // jest spy on 'next()' 
     let nextFunction = jest.fn();
 
     validator(requestObject, responseObject, nextFunction);
-    expect(requestObject).toEqual({query: {
-      name: 'test',
-    }});
+    
+    expect(requestObject).toEqual(
+      {query: {
+        name: 'test',
+      }}
+    );
 
     expect(nextFunction).toHaveBeenCalledWith();
     // expect(requestObject.query.name).toEqual('lorenzo');
-  } );
+  });
 });

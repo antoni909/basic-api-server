@@ -56,7 +56,7 @@ describe('web server', () => {
   // });
 
   it('can delete a record', async () => {
-      const response = await request.delete('./food/1');
+      const response = await request.delete('/food/1');
       expect(response.status).toBe(204);
   });
 });

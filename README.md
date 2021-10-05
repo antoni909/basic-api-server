@@ -38,7 +38,7 @@
 
 [Home Repo](https://github.com/antoni909/basic-api-server)
 
-[PR - dev to main](#wip)
+[PR - dev to main](https://github.com/antoni909/basic-api-server/pull/5)
 
 [Assignment Instructions - Lab 03](./assignment.md);
 
@@ -66,7 +66,9 @@ npm run dev
 ```sh
 npm run test
 ```
+### UML
 
+![api-server](./assets/uml.jpg)
 ### Author
 
 👤 **Lorenzo Ortega**
